@@ -207,8 +207,8 @@ render();
 const LEFT_EYE = [33,160,158,133,153,144];
 const RIGHT_EYE = [263,387,385,362,380,373];
 const BLINK_THRESHOLD = 0.23;
-const LONG_BLINK_THRESHOLD = 500;   // in ms
-const REWIND_INTERVAL = 100;        // in ms
+const LONG_BLINK_THRESHOLD = 1000;   // in ms
+const REWIND_INTERVAL = 200;        // in ms
 let eyeClosedStart = null;
 let rewindId = null;
 let eyeWasClosed = false;
@@ -252,7 +252,7 @@ const faceMesh = new FaceMesh({
 faceMesh.setOptions({
   maxNumFaces: 1,
   refineLandmarks: true,
-  minDetectionConfidence: 0.4,
+  minDetectionConfidence: 0.5,
   minTrackingConfidence: 0.5
 });
 faceMesh.onResults(onResults);
