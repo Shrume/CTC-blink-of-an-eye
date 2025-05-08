@@ -4,20 +4,30 @@ const segments = [
   { type: "word",   text: "You might be slightly confused, but I think by the time this word comes out you should be getting the hang of this.", end: true },
   { type: "phrase", text: "Why this?", hold: true },
   { type: "word",   text: "You might ask.", end: true },
-  { type: "phrase", text: "Because Blinking is a often neglected part of our life,", hold: true },
-  { type: "word",   text: "we don’t really think about it until we are being reminded of.", end: true },
+  { type: "phrase", text: "Because blinking is an", hold: true },
+  { type: "phrase", text: "often neglected part of our lives,", hold: true },
+  { type: "word",   text: "we don’t really think about it until we are reminded of it.", end: true },
   { type: "phrase", text: "And while we’re on the subject—of fleeting things, of the barely noticed and easily lost—I ask that you be mindful, truly mindful, of each and every blink. For with the soft, near-silent fall of your eyelids, the world before you—these words, these thoughts rendered visible—may vanish, slipping like a whisper into the quiet space between moments, where time pauses and perception falters. The text you now see exists only in the fragile contract between light and attention, lingering no longer than your gaze allows. It lives in the act of seeing and perishes in the briefest act of forgetting. Gone in an instant. As real and as vanishing as a dream upon waking. Which is the long way of saying: please be mindful of your blinking because the text you see will disappear in the blink of an eye quite Literally.", end: true },
-  { type: "phrase", text: "Oh did you miss that?", hold: true },
+  { type: "phrase", text: "Oh", hold: true },
+  { type: "phrase", text: "did you miss that?", hold: true },
   { type: "phrase", text: "If not, great,",   hold: true },
   { type: "word",   text: "but if you ever miss any text you want to go back to,", hold: true },
   { type: "word",   text: "just close your eyes for a few seconds and we'll rewind a bit.", end: true },
   { type: "phrase", text: "But yeah,", hold: true },
-  { type: "phrase",   text: "by now you've blinked quite a few times, what really is blinking?", end: true },
+  { type: "phrase",   text: "by now you've blinked quite a few times,", end: true },
+  { type: "word",   text: "what really is blinking?", end: true },
   { type: "word",   text: "There are three types of blinking.", end: true },
-  { type: "word",   text: "The first type is spontaneous blinking, which is what you do for most of your life.", end:true },
-  { type: "word",   text: "The second type is voluntary blinking, which is what you’ve been doing during most of your time on this website.", end:true },
-  { type: "word",   text: "The third type is reflex blinking, which you would do in reaction to being startled.", end:true },
-  { type: "word",   text: "Despite the different types of blinking, the duration of a blink is fairly consistent at around 0.1 to 0.4 seconds. If you try hard enough, you could blink more than five times in one second.", end:true },
+  { type: "phrase",   text: "The first type", hold:true },
+  { type: "phrase",   text: "is spontaneous blinking,", hold:true },
+  { type: "phrase",   text: "which is what you do for most of your life.", end:true },
+  { type: "phrase",   text: "The second type is voluntary blinking,", hold:true },
+  { type: "phrase",   text: "which is what you’ve been doing during most of your time on this website.", end:true },
+  { type: "phrase",   text: "The third type is reflex blinking,", hold:true },
+  { type: "phrase",   text: "which you would do in reaction to being startled.", end:true },
+  { type: "phrase",   text: "Despite the different types of blinking,", hold:true },
+  { type: "phrase",   text: "the duration of a blink is fairly consistent at around 0.1 to 0.4 seconds.", hold:true },
+  { type: "phrase",   text: "If you try hard enough,", hold:true },
+  { type: "phrase",   text: "you could blink more than five times in one second.", end:true },
   { type: "word",   text: "Although the length of each blink is about the same, blink intervals vary greatly. Under normal circumstances people blink between 15 and 20 times per minute.", hold:true },
   { type: "word",   text: "When reading or looking at screens, that can drop to 4 to 10 blinks per minute, which is why your eyes feel sore after long periods at a laptop.", hold:true },
   { type: "word",   text: "You blink more, around 30 times per minute, when you are conversing or under stress.", end:true },
@@ -38,8 +48,9 @@ const segments = [
   { type: "word",   text: "8 hours/day × 365.25 days/year × 72 years = 210,384 hours = 8,766 days ≈ 24 years, which is about 33.33% of your entire life.", end:true },
   { type: "phrase",   text: "At this point", hold:true },
   { type: "word",   text: "you must be intrigued about how much time other tasks would occupy right?", end:true },
-  { type: "word",   text: "Worry not, here's a full table of some of the choirs to save you from blinking too much.", end:true },
-  { type: "word",   text: "Assuming you are a very healthy individual and work very hard (more than 10h a day)", hold:true },
+  { type: "word",   text: "Worry not, here's a table of some of the choirs to save you from blinking too much.", end:true },
+  { type: "phrase",   text: "Assuming you are a very health individual", hold:true },
+  { type: "phrase",   text: "who works very hard (more than 10h a day)", hold:true },
   { type: "html",
     html:  
     `<table>
@@ -64,32 +75,9 @@ const segments = [
                 <tr><td>Socializing</td><td>0.5</td><td>13,149</td><td>1.5</td><td>2.08%</td></tr>
             </tbody>
     </table>`, end: true},
-    { type: "word",   text: "Assuming you are a very health individual and work very hard (more than 10h a day)", hold:true },
-  { type: "html",
-    html:  
-    `<table>
-        <thead>
-            <tr>
-                <th>Activity</th>
-                <th>Daily Hours</th>
-                <th>Lifetime Hours</th>
-                <th>Lifetime Years</th>
-                <th>Percentage of Life (%)</th>
-            </tr>
-        </thead>
-            <tbody>
-                <tr><td>Sleeping</td><td>8.0</td><td>210,384</td><td>24.0</td><td>33.33%</td></tr>
-                <tr><td>Work/Study</td><td>10.5</td><td>276,129</td><td>31.5</td><td>43.75%</td></tr>
-                <tr><td>Meals</td><td>1.5</td><td>39,447</td><td>4.5</td><td>6.25%</td></tr>
-                <tr><td>Bathroom</td><td>1.0</td><td>26,298</td><td>3.0</td><td>4.17%</td></tr>
-                <tr><td>Commuting</td><td>1.0</td><td>26,298</td><td>3.0</td><td>4.17%</td></tr>
-                <tr><td>Misc Chores</td><td>1.0</td><td>26,298</td><td>3.0</td><td>4.17%</td></tr>
-                <tr><td>Blinking</td><td>1.0</td><td>26,298</td><td>3.0</td><td>4.17%</td></tr>
-                <tr><td>Relaxation</td><td>0.5</td><td>13,149</td><td>1.5</td><td>2.08%</td></tr>
-                <tr><td>Socializing</td><td>0.5</td><td>13,149</td><td>1.5</td><td>2.08%</td></tr>
-            </tbody>
-    </table>`, end: true},
-  { type: "word",   text: "What's the point? you may ask? ", end:true },
+    
+  { type: "phrase",   text: "What's the point?", hold:true },
+  { type: "phrase",   text: "You might ask.", end:true },
   { type: "word",   text: "The ancient Chinese idiom '滴水石穿' which literally translates to 'dripping water can penetrate stone' It's the idea that persistent, consistent effort, no matter how small, can eventually achieve significant results.", end:true },
   { type: "word",   text: "So maybe next time when you start doom scrolling on the toilet, be mindful of how long you will spend your life doing so.", end:true },
   { type: "word",   text: "The End.", hold:true },
