@@ -1,4 +1,4 @@
-// Text segments for display
+
 const segments = [
   { type: "word",   text: "Hello, there.", end: true },
 
@@ -146,13 +146,12 @@ const segments = [
 
 ];
 
-// State variables
+
 let currentIndex = 0;
 let subIndex = 0;
 let held = [];
 const historyStack = [];
 
-// Render function
 function render() {
   let output = '';
   if (held.length) output += held.join(' ') + ' ';
@@ -169,7 +168,6 @@ function render() {
   }
 }
 
-// Advance to next segment/word
 function next() {
   const seg = segments[currentIndex];
   if (!seg) return;
@@ -193,7 +191,6 @@ function next() {
   render();
 }
 
-// Rewind to previous
 function previous() {
   if (historyStack.length < 2) return;
   historyStack.pop();
@@ -204,11 +201,9 @@ function previous() {
   render();
 }
 
-// Initialize display history
 historyStack.push({ currentIndex, subIndex, held: [...held] });
 render();
 
-// Blink detection and MediaPipe setup
 const LEFT_EYE = [33,160,158,133,153,144];
 const RIGHT_EYE = [263,387,385,362,380,373];
 const BLINK_THRESHOLD = 0.23;
@@ -232,18 +227,15 @@ function onResults(results) {
     const now = performance.now();
 
     if (avgEAR < BLINK_THRESHOLD) {
-      // falling edge: eyes just closed
       if (!eyeWasClosed) {
         eyeWasClosed = true;
         eyeClosedStart = now;
         next();
       }
-      // long blink triggers rewind
       if (!rewindId && now - eyeClosedStart >= LONG_BLINK_THRESHOLD) {
         rewindId = setInterval(previous, REWIND_INTERVAL);
       }
     } else {
-      // eyes open: reset states
       if (eyeWasClosed) eyeWasClosed = false;
       if (rewindId) {
         clearInterval(rewindId);
@@ -253,7 +245,7 @@ function onResults(results) {
   }
 }
 
-// Set up MediaPipe FaceMesh and camera
+
 const faceMesh = new FaceMesh({
   locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
 });
