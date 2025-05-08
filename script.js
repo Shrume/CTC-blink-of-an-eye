@@ -139,11 +139,11 @@ const segments = [
   { type: "phrase",   text: "can eventually achieve significant results.", end:true },
 
 
-  { type: "word",   text: "So I guess the takeawaye is that maybe next time when you start doom scrolling on the toilet, be mindful of how many years of your life you'll spend doing so.", end:true }, 
+  { type: "word",   text: "So I guess the takeawaye is that maybe next time when you start doom scrolling on the toilet, be mindful of how many years of your life you are willing spend doing so.", end:true }, 
 
   { type: "phrase",   text: "The End.", hold:true },
   { type: "phrase",   text: "Thank you for blinking.", end:true },
-  
+
 ];
 
 // State variables
