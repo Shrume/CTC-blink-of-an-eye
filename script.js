@@ -14,7 +14,7 @@ const segments = [
   { type: "word",   text: "but if you ever miss any text you want to go back to,", hold: true },
   { type: "word",   text: "just close your eyes for a few seconds and we'll rewind a bit.", end: true },
   { type: "phrase", text: "But yeah,", hold: true },
-  { type: "phrase",   text: "by now you've blinked quite a few times,", end: true },
+  { type: "phrase",   text: "by now you've blinked quite a few times,", hold: true },
   { type: "word",   text: "what really is blinking?", end: true },
   { type: "word",   text: "There are three types of blinking.", end: true },
   { type: "phrase",   text: "The first type", hold:true },
@@ -104,8 +104,8 @@ const segments = [
   { type: "phrase",   text: "You might ask.", end:true },
   { type: "word",   text: "The ancient Chinese idiom '滴水石穿' which literally translates to 'dripping water can penetrate stone' It's the idea that persistent, consistent effort, no matter how small, can eventually achieve significant results.", end:true },
   { type: "word",   text: "So I guess the takeawaye is that maybe next time when you start doom scrolling on the toilet, be mindful of how many years of your life you'll spend doing so.", end:true }, 
-  { type: "Phrase",   text: "The End.", hold:true },
-  { type: "Phrase",   text: "Thank you for blinking.", end:true },
+  { type: "phrase",   text: "The End.", hold:true },
+  { type: "phrase",   text: "Thank you for blinking.", end:true },
 ];
 
 // State variables
