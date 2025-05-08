@@ -42,46 +42,65 @@ const segments = [
   { type: "phrase",   text: "around 0.1 to 0.4 seconds.", hold:true },
   { type: "phrase",   text: "If you try hard enough,", hold:true },
   { type: "word",   text: "you could blink more than five times in one second.", end:true },
+
   { type: "phrase",   text: "Although the length of each blink is about the same,", hold:true },
   { type: "phrase",   text: "blink intervals vary greatly.", hold:true },
   { type: "phrase",   text: "Under normal circumstances", hold:true },
   { type: "word",   text: "people blink between 15 and 20 times per minute.", end:true },
+
   { type: "phrase",   text: "When reading or", hold:true },
   { type: "phrase",   text: "looking at screens,", hold:true },
   { type: "phrase",   text: "that can drop to 4 to 10 blinks per minute,", hold:true },
   { type: "phrase",   text: "which is why your eyes", hold:true },
   { type: "word",   text: "feel sore after long periods at a laptop.", end:true },
+
   { type: "phrase",   text: "You blink more,", hold:true },
   { type: "phrase",   text: "around 30 times per minute,", hold:true },
   { type: "word",   text: "when you are conversing or under stress.", end:true },
+  
   { type: "word",   text: "Age also affects blink rates.", end:true },
+
   { type: "phrase",   text: "Infants blink much less,", hold:true },
   { type: "phrase",   text: "roughly one or two times per minute,", hold:true },
   { type: "word",   text: "probably because their eyes are small and well lubricated.", end:true },
+
   { type: "word",   text: "Well that was quite a few blinks you've blinked,", hold:true },
   { type: "phrase",   text: "but not so much", hold:true },
   { type: "word",   text: "when you compare it to the amount you blink every day.", end:true },
+
   { type: "word",   text: "Assuming you sleep 8 hours a day ", hold:true },
   { type: "phrase",   text: "(aka. well rested),", hold:true },
   { type: "phrase",   text: "(aka. NOT a RISD Student),", hold:true },
   { type: "phrase",   text: "and blink at an average rate of", hold:true },
   { type: "phrase",   text: "15 blinks per minute over 16 waking hours,", end:true },
+
   { type: "word",   text: "that's 15 blinks/min × 60 min/hr × 16 hour/day = 14,400 blinks a day", end:true },
+
   { type: "word",   text: "And assuming your average blink lasts for 0.25 seconds", end:true },
+
   { type: "phrase",   text: "that's 14,400 blinks/day × 0.25 seconds = 3,600 seconds/day = 1 hour/day", hold:true },
+
   { type: "word",   text: "you spend with your eyes closed solely from blinking", end:true },
+
   { type: "word",   text: "That's quite a long time. Maybe it was a little out of your expectations, but there more.", end:true },
+
   { type: "word",   text: "Assuming your lifespan is the world's average life expectancy of 72 years,", end:true },
+
   { type: "phrase",   text: "1 hour/day × 365.25 days/year × 72 years ≈ 26,298 hours = 1,095.75 days,", hold:true },
   { type: "word",   text: "or about 3 years of your life with your eyes closed simply from blinking.", hold:true },
   { type: "word",   text: "That's 4.16% of your entire life. Make of that what you will.", end:true },
+
   { type: "phrase",   text: "And that was just the time we spent blinking,", hold:true },
   { type: "phrase",   text: "what about the time we spend with eyes closed in total.", end:true },
+
   { type: "word",   text: "Assuming you have the luxury of sleeping on average 8 hours a day:", end:true },
+
   { type: "phrase",   text: "8 hours/day × 365.25 days/year × 72 years = 210,384 hours = 8,766 days ≈ 24 years,", hold:true },
   { type: "word",   text: "which is about 33.33% of your entire life.", end:true },
+
   { type: "phrase",   text: "At this point", hold:true },
   { type: "word",   text: "you must be intrigued about how much time other tasks would occupy right? Right?", end:true },
+
   { type: "word",   text: "Worry not, here's a table of data to save you from more blinking.", hold:true },
   { type: "phrase",   text: "Assuming you are a very health individual", hold:true },
   { type: "word",   text: "who works very hard", hold:true },
@@ -113,10 +132,18 @@ const segments = [
     
   { type: "phrase",   text: "What's the point?", hold:true },
   { type: "phrase",   text: "You might ask.", end:true },
-  { type: "word",   text: "The ancient Chinese idiom '滴水石穿' which literally translates to 'dripping water can penetrate stone' It's the idea that persistent, consistent effort, no matter how small, can eventually achieve significant results.", end:true },
+
+  { type: "phrase",   text: "The ancient Chinese idiom '滴水石穿'", hold:true },
+  { type: "phrase",   text: "which literally translates to 'dripping water can penetrate stone'", hold:true },
+  { type: "phrase",   text: "It's the idea that persistent and consistent effort, no matter how small,", hold:true },
+  { type: "phrase",   text: "can eventually achieve significant results.", end:true },
+
+
   { type: "word",   text: "So I guess the takeawaye is that maybe next time when you start doom scrolling on the toilet, be mindful of how many years of your life you'll spend doing so.", end:true }, 
+
   { type: "phrase",   text: "The End.", hold:true },
   { type: "phrase",   text: "Thank you for blinking.", end:true },
+  
 ];
 
 // State variables
