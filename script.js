@@ -67,12 +67,14 @@ const segments = [
   { type: "phrase",   text: "And that was just the time we spent blinking,", hold:true },
   { type: "phrase",   text: "what about the time we spend with eyes closed in total.", end:true },
   { type: "word",   text: "Assuming you have the luxury of sleeping on average 8 hours a day:", end:true },
-  { type: "word",   text: "8 hours/day × 365.25 days/year × 72 years = 210,384 hours = 8,766 days ≈ 24 years, which is about 33.33% of your entire life.", end:true },
+  { type: "phrase",   text: "8 hours/day × 365.25 days/year × 72 years = 210,384 hours = 8,766 days ≈ 24 years,", hold:true },
+  { type: "word",   text: "which is about 33.33% of your entire life.", end:true },
   { type: "phrase",   text: "At this point", hold:true },
-  { type: "word",   text: "you must be intrigued about how much time other tasks would occupy right?", end:true },
-  { type: "word",   text: "Worry not, here's a table of some of the universal chores to save you from more blinking.", end:true },
+  { type: "word",   text: "you must be intrigued about how much time other tasks would occupy right? Right?", end:true },
+  { type: "word",   text: "Worry not, here's a table of data to save you from more blinking.", hold:true },
   { type: "phrase",   text: "Assuming you are a very health individual", hold:true },
-  { type: "word",   text: "who works very hard (more than 10h a day)", hold:true },
+  { type: "word",   text: "who works very hard", hold:true },
+  { type: "word",   text: "(more than 10 hours a day)", hold:true },
   { type: "html",
     html:  
     `<table>
