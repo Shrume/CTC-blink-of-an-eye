@@ -1,30 +1,41 @@
 // Text segments for display
 const segments = [
   { type: "word",   text: "Hello, there.", end: true },
+
   { type: "word",   text: "You might be slightly confused, but I think by the time this word comes out you should be getting the hang of this.", end: true },
+
   { type: "phrase", text: "Why this?", hold: true },
   { type: "word",   text: "You might ask.", end: true },
+
   { type: "phrase", text: "Because blinking is an", hold: true },
   { type: "phrase", text: "often neglected part of our lives,", hold: true },
   { type: "word",   text: "we don’t really think about it until we are reminded of it.", end: true },
+
   { type: "phrase", text: "And while we’re on the subject—of fleeting things, of the barely noticed and easily lost—I ask that you be mindful, truly mindful, of each and every blink. For with the soft, near-silent fall of your eyelids, the world before you—these words, these thoughts rendered visible—may vanish, slipping like a whisper into the quiet space between moments, where time pauses and perception falters. The text you now see exists only in the fragile contract between light and attention, lingering no longer than your gaze allows. It lives in the act of seeing and perishes in the briefest act of forgetting. Gone in an instant. As real and as vanishing as a dream upon waking. Which is the long way of saying: please be mindful of your blinking because the text you see will disappear in the blink of an eye quite Literally.", end: true },
+
   { type: "phrase", text: "Oh", hold: true },
   { type: "phrase", text: "did you miss that?", hold: true },
   { type: "phrase", text: "If not, great,",   hold: true },
   { type: "word",   text: "but if you ever miss any text you want to go back to,", hold: true },
   { type: "word",   text: "just close your eyes for a few seconds and we'll rewind a bit.", end: true },
+
   { type: "phrase", text: "But yeah,", hold: true },
   { type: "phrase",   text: "by now you've blinked quite a few times,", hold: true },
   { type: "word",   text: "what really is blinking?", end: true },
+
   { type: "word",   text: "There are three types of blinking.", end: true },
+
   { type: "phrase",   text: "The first type", hold:true },
   { type: "phrase",   text: "is spontaneous blinking,", hold:true },
   { type: "phrase",   text: "which is what you do for most of your life.", end:true },
+
   { type: "phrase",   text: "The second type is voluntary blinking,", hold:true },
   { type: "word",   text: "which is what you’ve been doing for the majority of your time on this website.", end:true },
+
   { type: "phrase",   text: "The third type is reflex blinking,", hold:true },
   { type: "word",   text: "which you would do in reaction to being startled.", hold:true },
-  { type: "phrase",   text: "(I was going to jump scare you to demonstrate that by I'm too kind)", end:true },
+  { type: "phrase",   text: "(I was going to jump scare you to demonstrate that but I'm too kind)", end:true },
+
   { type: "phrase",   text: "Despite the different types of blinking,", hold:true },
   { type: "phrase",   text: "the duration of a blink is", hold:true },
   { type: "phrase",   text: "fairly consistent at", hold:true },
