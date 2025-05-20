@@ -7,6 +7,46 @@ body {
   background: #f4f4f4;
   user-select: none;
   overflow: hidden;
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5;
+  
+}
+
+#landing-screen {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  text-align: center;
+}
+
+#landing-screen p {
+  /*margin-bottom: 1.5rem;*/
+  max-width: 420px;
+  font-size: 16px;
+}
+
+#start-btn {
+  margin-top: 0.5rem;
+  background-color: rgb(219, 219, 219);
+  border-radius: 12px;
+}
+
+#landing-screen button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/*ChatGPT*/
+#main-content [class*="input_video"],
+#main-content .output_canvas {
+  display: block;
 }
 
 #text-display {
@@ -14,17 +54,68 @@ body {
   max-width: 90%;
   line-height: 1.5;
   text-align: left;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 24px;
   color: #333;
 }
 
-/* Hide camera elements */
-video, canvas {
-  display: none;
+
+#info-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  z-index: 1000;
 }
 
-/* Table styling */
+#info-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+#info-overlay:not([hidden]) {
+  display: flex;
+}
+
+
+#info-overlay .overlay-inner {
+  background: #222;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+#info-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*ChatGPT*/
+video, canvas {
+  display: none !important;
+}
+
 #text-display table {
   width: 100%;
   border-collapse: collapse;

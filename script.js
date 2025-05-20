@@ -1,27 +1,67 @@
+// Most of the code below are aided by ChatGPT
+const synth = new Tone.FMSynth({
+  harmonicity: 3,            // ratio between carrier & modulator
+  modulationIndex: 10,       // depth of modulation
+  oscillator: { type: "sine" },
+  envelope: {
+    attack: 0.001,
+    decay: 0.2,
+    sustain: 0.2,
+    release: 1
+  }
+}).toDestination();
+
+const NOTES = ['F1','A1','G1'];
+
+function playRandomNote() {
+  const note = NOTES[Math.floor(Math.random() * NOTES.length)];
+  if (Tone.context.state !== 'running') {
+    Tone.context.resume();
+  }
+  synth.triggerAttackRelease(note, '8n');
+}
+
 
 const segments = [
+  { type: "word",   text: " ", hold: true },
   { type: "word",   text: "Hello, there.", end: true },
 
-  { type: "word",   text: "You might be slightly confused, but I think by the time this word comes out you should be getting the hang of this.", end: true },
+  { type: "phrase",   text: "You might be slightly confused,", hold: true },
+  { type: "phrase",   text: "but I think", hold: true },
+  { type: "phrase",   text: "by the time", hold: true },
+  { type: "word",   text: " this word comes out ", hold: true },
+  { type: "phrase",   text: "you should be", hold: true },
+  { type: "phrase",   text: "getting the hang", hold: true },
+  { type: "word",   text: "of this.", end: true },
 
   { type: "phrase", text: "Why this?", hold: true },
   { type: "word",   text: "You might ask.", end: true },
+  
+  { type: "word", text: "Because", hold: true },
+  { type: "phrase", text: "blinking is an", hold: true },
+  { type: "phrase", text: "often neglected", hold: true },
+  { type: "phrase", text: "part of our lives,", hold: true },
+  { type: "phrase",   text: "we don’t really", hold: true },
+  { type: "phrase",   text: "think about it", hold: true },
+  { type: "phrase",   text: "until we are", hold: true },
+  { type: "word",   text: "reminded of it.", end: true },
 
-  { type: "phrase", text: "Because blinking is an", hold: true },
-  { type: "phrase", text: "often neglected part of our lives,", hold: true },
-  { type: "word",   text: "we don’t really think about it until we are reminded of it.", end: true },
-
-  { type: "phrase", text: "And while we’re on the subject—of fleeting things, of the barely noticed and easily lost—I ask that you be mindful, truly mindful, of each and every blink. For with the soft, near-silent fall of your eyelids, the world before you—these words, these thoughts rendered visible—may vanish, slipping like a whisper into the quiet space between moments, where time pauses and perception falters. The text you now see exists only in the fragile contract between light and attention, lingering no longer than your gaze allows. It lives in the act of seeing and perishes in the briefest act of forgetting. Gone in an instant. As real and as vanishing as a dream upon waking. Which is the long way of saying: please be mindful of your blinking because the text you see will disappear in the blink of an eye quite Literally.", end: true },
+  { type: "phrase", text: "And while we’re on the subject—of fleeting things, of the barely noticed and easily lost—I ask that you be mindful, truly mindful, of each and every blink. For with the soft, near-silent fall of your eyelids, the world before you—these words, these thoughts rendered visible—may vanish, slipping like a whisper into the quiet space between moments, where time pauses and perception falters. The text you now see exists only in the fragile contract between light and attention, lingering no longer than your gaze allows. It lives in the act of seeing and perishes in the briefest act of forgetting. Gone in an instant. As real and as vanishing as a dream upon waking. Which is the long way of saying: please be mindful of your blinking because the text you see will disappear in the blink of an eye quite literally.", end: true },
 
   { type: "phrase", text: "Oh", hold: true },
   { type: "phrase", text: "did you miss that?", hold: true },
   { type: "phrase", text: "If not, great,",   hold: true },
-  { type: "word",   text: "but if you ever miss any text you want to go back to,", hold: true },
-  { type: "word",   text: "just close your eyes for a few seconds and we'll rewind a bit.", end: true },
+  { type: "phrase",   text: "but if you", hold: true },
+  { type: "phrase",   text: "ever miss any text", hold: true },
+  { type: "phrase",   text: "you want to go back to,", hold: true },
+  { type: "phrase",   text: "just close your eyes", hold: true },
+  { type: "phrase",   text: "for a few seconds and", hold: true },
+  { type: "word",   text: "we'll rewind a bit.", end: true },
 
   { type: "phrase", text: "But yeah,", hold: true },
-  { type: "phrase",   text: "by now you've blinked quite a few times,", hold: true },
-  { type: "word",   text: "what really is blinking?", end: true },
+  { type: "phrase",   text: "by now you've blinked", hold: true },
+  { type: "phrase",   text: "quite a few times,", hold: true },
+  { type: "word",   text: "but what really is blinking?", end: true },
 
   { type: "word",   text: "There are three types of blinking.", end: true },
 
@@ -29,80 +69,131 @@ const segments = [
   { type: "phrase",   text: "is spontaneous blinking,", hold:true },
   { type: "phrase",   text: "which is what you do for most of your life.", end:true },
 
-  { type: "phrase",   text: "The second type is voluntary blinking,", hold:true },
-  { type: "word",   text: "which is what you’ve been doing for the majority of your time on this website.", end:true },
+  { type: "phrase",   text: "The second type", hold:true },
+  { type: "phrase",   text: "is voluntary blinking,", hold:true },
+  { type: "phrase",   text: "which is what you’ve been doing", hold:true },
+  { type: "phrase",   text: "for the majority of your time", hold:true },
+  { type: "word",   text: "on this website.", end:true },
 
-  { type: "phrase",   text: "The third type is reflex blinking,", hold:true },
-  { type: "word",   text: "which you would do in reaction to being startled.", hold:true },
-  { type: "phrase",   text: "(I was going to jump scare you to demonstrate that but I'm too kind)", end:true },
+  { type: "phrase",   text: "The third type", hold:true },
+  { type: "phrase",   text: "is reflex blinking,", hold:true },
+  { type: "phrase",   text: "which you would do", hold:true },
+  { type: "phrase",   text: "in reaction to", hold:true },
+  { type: "word",   text: "being startled.", hold:true },
+  { type: "phrase",   text: "(I was going to jump scare you to demonstrate that", hold:true },
+  { type: "phrase",   text: "but I'm too kind)", end:true },
 
   { type: "phrase",   text: "Despite the different types of blinking,", hold:true },
   { type: "phrase",   text: "the duration of a blink is", hold:true },
   { type: "phrase",   text: "fairly consistent at", hold:true },
   { type: "phrase",   text: "around 0.1 to 0.4 seconds.", hold:true },
   { type: "phrase",   text: "If you try hard enough,", hold:true },
-  { type: "word",   text: "you could blink more than five times in one second.", end:true },
+  { type: "phrase",   text: "you could blink more than", hold:true },
+  { type: "word",   text: "5 times in 1 second.", end:true },
 
   { type: "phrase",   text: "Although the length of each blink is about the same,", hold:true },
   { type: "phrase",   text: "blink intervals vary greatly.", hold:true },
   { type: "phrase",   text: "Under normal circumstances", hold:true },
-  { type: "word",   text: "people blink between 15 and 20 times per minute.", end:true },
+  { type: "word",   text: "people blink between", hold:true },
+  { type: "word",   text: "15 and 20 times per minute.", end:true },
 
   { type: "phrase",   text: "When reading or", hold:true },
   { type: "phrase",   text: "looking at screens,", hold:true },
-  { type: "phrase",   text: "that can drop to 4 to 10 blinks per minute,", hold:true },
+  { type: "phrase",   text: "that can drop to", hold:true },
+  { type: "phrase",   text: "4 to 10 blinks per minute,", hold:true },
   { type: "phrase",   text: "which is why your eyes", hold:true },
-  { type: "word",   text: "feel sore after long periods at a laptop.", end:true },
+  { type: "phrase",   text: "feel sore after long periods of", hold:true },
+  { type: "word",   text: "reading or looking at screens.", end:true },
 
-  { type: "phrase",   text: "You blink more,", hold:true },
-  { type: "phrase",   text: "around 30 times per minute,", hold:true },
-  { type: "word",   text: "when you are conversing or under stress.", end:true },
+  { type: "phrase",   text: "On the other hand,", hold:true },
+  { type: "phrase",   text: "you blink more,", hold:true },
+  { type: "phrase",   text: "around 30 times per minute, when you are", hold:true },
+  { type: "word",   text: "conversing or under stress.", end:true },
   
+  
+  /* These Lines are removed to shorten the experience
   { type: "word",   text: "Age also affects blink rates.", end:true },
 
   { type: "phrase",   text: "Infants blink much less,", hold:true },
-  { type: "phrase",   text: "roughly one or two times per minute,", hold:true },
-  { type: "word",   text: "probably because their eyes are small and well lubricated.", end:true },
+  { type: "phrase",   text: "roughly 1 or 2 times per minute,", hold:true },
+  { type: "word",   text: "probably because their eyes are small and well lubricated.", end:true },*/
 
-  { type: "word",   text: "Well that was quite a few blinks you've blinked,", hold:true },
+  { type: "phrase",   text: "Well that was quite a few", hold:true },
+  { type: "word",   text: "blinks you've blinked,", hold:true },
   { type: "phrase",   text: "but not so much", hold:true },
-  { type: "word",   text: "when you compare it to the amount you blink every day.", end:true },
+  { type: "phrase",   text: "when you compare it to", hold:true },
+  { type: "word",   text: "the amount you blink every day.", end:true },
 
-  { type: "word",   text: "Assuming you sleep 8 hours a day ", hold:true },
-  { type: "phrase",   text: "(aka. well rested),", hold:true },
-  { type: "phrase",   text: "(aka. NOT a RISD Student),", hold:true },
+  { type: "word",   text: "Assuming", hold:true },
+  { type: "phrase",   text: "you sleep 8 hours a day ", hold:true },
+  //{ type: "phrase",   text: "(aka. well rested),", hold:true },
+  { type: "phrase",   text: "(aka. NOT a RISD student),", hold:true },
   { type: "phrase",   text: "and blink at an average rate of", hold:true },
-  { type: "phrase",   text: "15 blinks per minute over 16 waking hours,", end:true },
+  { type: "phrase",   text: "15 blinks per minute", hold:true },
+  { type: "word",   text: "over 16 waking hours,", end:true },
 
-  { type: "word",   text: "that's 15 blinks/min × 60 min/hr × 16 hour/day = 14,400 blinks a day", end:true },
+  { type: "word",   text: "that's", hold:true },
+  { type: "phrase",   text: "15 blinks/min × ", hold:true },
+  { type: "phrase",   text: "60 min/hr × ", hold:true },
+  { type: "phrase",   text: "16 hour/day = ", hold:true },
+  { type: "word",   text: "14,400 blinks a day", end:true },
 
-  { type: "word",   text: "And assuming your average blink lasts for 0.25 seconds", end:true },
+  { type: "phrase",   text: "And assuming", hold:true },
+  { type: "phrase",   text: "your average blink lasts", hold:true },
+  { type: "phrase",   text: "for 0.25 seconds", hold:true },
 
-  { type: "phrase",   text: "that's 14,400 blinks/day × 0.25 seconds = 3,600 seconds/day = 1 hour/day", hold:true },
+  { type: "word",   text: "that's", hold:true },
+  { type: "phrase",   text: "14,400 blinks/day × ", hold:true },
+  { type: "phrase",   text: "0.25 seconds = ", hold:true },
+  { type: "phrase",   text: "3,600 seconds/day = ", hold:true },
+  { type: "word",   text: "1 hour/day", hold:true },
 
-  { type: "word",   text: "you spend with your eyes closed solely from blinking", end:true },
+  { type: "word",   text: "you spend with your eyes closed solely from blinking.", end:true },
 
-  { type: "word",   text: "That's quite a long time. Maybe it was a little out of your expectations, but there more.", end:true },
+  { type: "phrase",   text: "That's quite a long time.", hold:true },
+  { type: "phrase",   text: "Maybe it was a little out of your expectations,", hold:true },
+  { type: "phrase",   text: "but there is more.", end:true },
 
   { type: "word",   text: "Assuming your lifespan is the world's average life expectancy of 72 years,", end:true },
 
-  { type: "phrase",   text: "1 hour/day × 365.25 days/year × 72 years ≈ 26,298 hours = 1,095.75 days,", hold:true },
-  { type: "word",   text: "or about 3 years of your life with your eyes closed simply from blinking.", hold:true },
-  { type: "word",   text: "That's 4.16% of your entire life. Make of that what you will.", end:true },
+  { type: "word",   text: "Assuming", hold:true },
+  { type: "phrase",   text: "your lifespan is the", hold:true },
+  //{ type: "phrase",   text: "(aka. well rested),", hold:true },
+  { type: "phrase",   text: "world's average life expectancy", hold:true },
+  { type: "phrase",   text: "of 72 years,", end:true },
 
-  { type: "phrase",   text: "And that was just the time we spent blinking,", hold:true },
+  { type: "phrase",   text: "1 hour/day × ", hold:true },
+  { type: "phrase",   text: "365.25 days/year ×", hold:true },
+  { type: "phrase",   text: "72 years ≈ ", hold:true },
+  { type: "phrase",   text: "26,298 hours =", hold:true },
+  { type: "phrase",   text: "1,095.75 days,", hold:true },
+  { type: "phrase",   text: "or about 3 years of your life", hold:true },
+  { type: "phrase",   text: "with your eyes closed simply from blinking.", hold:true },
+  { type: "phrase",   text: "That's 4.16% of your entire life.", hold:true },
+  { type: "phrase",   text: "Make of that what you will.", end:true },
+
+
+  { type: "phrase",   text: "And that was just the time we spent blinking.", hold:true },
+  /*
   { type: "phrase",   text: "what about the time we spend with eyes closed in total.", end:true },
 
   { type: "word",   text: "Assuming you have the luxury of sleeping on average 8 hours a day:", end:true },
 
   { type: "phrase",   text: "8 hours/day × 365.25 days/year × 72 years = 210,384 hours = 8,766 days ≈ 24 years,", hold:true },
   { type: "word",   text: "which is about 33.33% of your entire life.", end:true },
+  */
+  { type: "phrase",   text: "At this point", hold:true },  
+  { type: "phrase",   text: "you must be intrigued", hold:true },
+  { type: "phrase",   text: "about how much time", hold:true },
+  { type: "phrase",   text: "other tasks would occupy right?", hold:true },
+  { type: "phrase",   text: "Right?", end:true },
 
-  { type: "phrase",   text: "At this point", hold:true },
-  { type: "word",   text: "you must be intrigued about how much time other tasks would occupy right? Right?", end:true },
-
-  { type: "word",   text: "Worry not, here's a table of data to save you from more blinking.", hold:true },
-  { type: "phrase",   text: "Assuming you are a very health individual", hold:true },
+  { type: "phrase",   text: "Worry not,", hold:true },
+  { type: "phrase",   text: "here's a table of data", hold:true },
+  { type: "phrase",   text: "to save you from", hold:true },
+  { type: "word",   text: "more blinking.", hold:true },
+  { type: "phrase",   text: "Assuming you are", hold:true },
+  { type: "phrase",   text: "a very health individual", hold:true },
   { type: "word",   text: "who works very hard", hold:true },
   { type: "word",   text: "(more than 10 hours a day)", hold:true },
   { type: "html",
@@ -131,32 +222,49 @@ const segments = [
     </table>`, end: true},
     
   { type: "phrase",   text: "What's the point?", hold:true },
-  { type: "phrase",   text: "You might ask.", end:true },
+  { type: "word",   text: "You might ask.", end:true },
 
-  { type: "phrase",   text: "The ancient Chinese idiom '滴水石穿'", hold:true },
-  { type: "phrase",   text: "which literally translates to 'dripping water can penetrate stone'", hold:true },
-  { type: "phrase",   text: "It's the idea that persistent and consistent effort, no matter how small,", hold:true },
-  { type: "phrase",   text: "can eventually achieve significant results.", end:true },
+  { type: "phrase",   text: "The ancient Chinese idiom", hold:true },
+  { type: "phrase",   text: "'滴水石穿',", hold:true },
+  { type: "phrase",   text: "which literally translates to,", hold:true },
+  { type: "phrase",   text: "'dripping water can penetrate stone',", hold:true },
+  { type: "phrase",   text: "is the idea that", hold:true },
+  { type: "phrase",   text: "persistent and consistent effort,", hold:true },
+  { type: "phrase",   text: "no matter how small,", hold:true },
+  { type: "phrase",   text: "can eventually achieve", end:true },
+  { type: "word",   text: "significant results.", end:true },
 
-
-  { type: "word",   text: "So I guess the takeawaye is that maybe next time when you start doom scrolling on the toilet, be mindful of how many years of your life you are willing spend doing so.", end:true }, 
+  { type: "word", text: "So,", hold:true},
+  { type: "phrase",   text: "I guess the takeaway is that ", hold:true }, 
+  { type: "phrase",   text: "maybe next time when you start", hold:true }, 
+  { type: "phrase",   text: "doom scrolling on the toilet,", hold:true }, 
+  { type: "phrase",   text: "be mindful of how many", hold:true }, 
+  { type: "phrase",   text: "years of your life you are willing to", hold:true }, 
+  { type: "word",   text: "spend doing so.", end:true }, 
 
   { type: "phrase",   text: "The End.", hold:true },
-  { type: "phrase",   text: "Thank you for blinking.", end:true },
+  { type: "word",   text: "Thank you for blinking.", hold:true },
 
 ];
 
+const infoBtn     = document.getElementById('info-btn');
+const infoOverlay = document.getElementById('info-overlay');
+const infoClose   = document.getElementById('info-close');
+const historyStack = [];
+const ORIGINAL_SEGMENT_COUNT = segments.length;
 
+let blinkCount = 0;
+let dynamicInserted = false;
 let currentIndex = 0;
 let subIndex = 0;
 let held = [];
-const historyStack = [];
+
 
 function render() {
   let output = '';
   if (held.length) output += held.join(' ') + ' ';
-  const seg = segments[currentIndex];
-  const container = document.getElementById('text-display');
+    const seg = segments[currentIndex];
+    const container = document.getElementById('text-display');
   if (!seg) return;
   if (seg.type === 'html') {
     container.innerHTML = output + seg.html;
@@ -188,7 +296,18 @@ function next() {
     }
   }
   historyStack.push({ currentIndex, subIndex, held: [...held] });
+
+   if (currentIndex === ORIGINAL_SEGMENT_COUNT && !dynamicInserted) {
+    segments.splice(ORIGINAL_SEGMENT_COUNT, 0, {
+      type: 'phrase', text: `You've blinked ${blinkCount} times on this website.`, end: true
+    });
+    dynamicInserted = true;
+  }
+
   render();
+  if (currentIndex >= segments.length) {
+    infoBtn.hidden = false;
+}
 }
 
 function previous() {
@@ -200,6 +319,17 @@ function previous() {
   held = [...prev.held];
   render();
 }
+
+document.addEventListener('keydown', (e) => {
+  const key = e.key.toLowerCase();
+  if (key === 'd') {
+    e.preventDefault();
+    next();
+  } else if (key === 'a') {
+    e.preventDefault();
+    previous();
+  }
+});
 
 historyStack.push({ currentIndex, subIndex, held: [...held] });
 render();
@@ -214,6 +344,7 @@ let rewindId = null;
 let eyeWasClosed = false;
 
 function getEAR(lm, eye) {
+  
   const [p1, p2, p3, p4, p5, p6] = eye.map(i => lm[i]);
   return (Math.hypot(p2.x - p6.x, p2.y - p6.y) +
           Math.hypot(p3.x - p5.x, p3.y - p5.y)) /
@@ -221,6 +352,14 @@ function getEAR(lm, eye) {
 }
 
 function onResults(results) {
+  
+  const hasFace = results.multiFaceLandmarks.length > 0;
+  if (!hasFace) {
+    eyeWasClosed = false;
+    if (rewindId) clearInterval(rewindId), rewindId = null;
+    return;
+  }
+
   if (results.multiFaceLandmarks.length) {
     const lm = results.multiFaceLandmarks[0];
     const avgEAR = (getEAR(lm, LEFT_EYE) + getEAR(lm, RIGHT_EYE)) / 2;
@@ -230,7 +369,12 @@ function onResults(results) {
       if (!eyeWasClosed) {
         eyeWasClosed = true;
         eyeClosedStart = now;
+
+        blinkCount++;
+         updateBlinkTally();
+
         next();
+        playRandomNote();
       }
       if (!rewindId && now - eyeClosedStart >= LONG_BLINK_THRESHOLD) {
         rewindId = setInterval(previous, REWIND_INTERVAL);
@@ -245,6 +389,17 @@ function onResults(results) {
   }
 }
 
+function updateBlinkTally() {
+  if (!dynamicInserted) return;
+
+  segments[ORIGINAL_SEGMENT_COUNT].text =
+    `You've blinked ${blinkCount} times on this website.`;
+
+  if (currentIndex >= ORIGINAL_SEGMENT_COUNT) {
+    currentIndex = ORIGINAL_SEGMENT_COUNT;
+    render();
+  }
+}
 
 const faceMesh = new FaceMesh({
   locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
@@ -252,7 +407,7 @@ const faceMesh = new FaceMesh({
 faceMesh.setOptions({
   maxNumFaces: 1,
   refineLandmarks: true,
-  minDetectionConfidence: 0.5,
+  minDetectionConfidence: 0.6,
   minTrackingConfidence: 0.5
 });
 faceMesh.onResults(onResults);
@@ -262,4 +417,26 @@ const camera = new Camera(document.querySelector('.input_video'), {
   width: 640,
   height: 480
 });
-camera.start();
+
+const startBtn = document.getElementById('start-btn');
+startBtn.addEventListener('click', async () => {
+  try {
+    await Tone.start();
+
+    await camera.start();
+
+    document.getElementById('landing-screen').remove();
+    document.getElementById('main-content').removeAttribute('hidden');
+  } catch (err) {
+    console.error('Error starting camera or audio:', err);
+    alert('Unable to start camera. Please grant permission and reload.');
+  }
+});
+
+infoBtn.addEventListener('click', () => {
+  infoOverlay.hidden = false;
+});
+
+infoClose.addEventListener('click', () => {
+  infoOverlay.hidden = true;
+});

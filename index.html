@@ -3,15 +3,51 @@
 <head>
   <meta charset="utf-8"/>
   <title>The Blink of An Eye</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+   <script src="https://unpkg.com/tone@latest/build/Tone.js"></script>
 </head>
 <body>
-  <video class="input_video" autoplay playsinline></video>
-  <canvas class="output_canvas" width="640" height="480"></canvas>
-  <div id="text-display"></div>
+  <div id="landing-screen">
+    <p>This website needs access to your camera for movenment tracking, please kindly give us permission. <br> Your data will not be stored.</p>
+    <button id="start-btn">Start</button>
+  </div>
 
-  <script src="script.js"></script>
+
+  <div id="main-content" hidden>
+    <video class="input_video" autoplay playsinline></video>
+    <canvas class="output_canvas" width="640" height="480"></canvas>
+    <div id="text-display">
+  </div>
+
+  <button id="info-btn" hidden aria-label="About this experience">?</button>
+  
+  <div id="info-overlay" hidden>
+  <div class="overlay-inner">
+    <button id="info-close" aria-label="Close">✖</button>
+    <p>
+      If you are reading this: you've reached the end of the experience. I hope you found this experience insightful, and thank you again for your patience. I'm guessing your eyes are feeling a little sore after going through the entire site, so feel free to navigate back and forth with the 'A' and 'D' keys from now on. Cheers!
+    </p>
+    <p>
+      Built by Shrume Zuo<br>
+      Advised by Gabriel Drozdov<br>
+      Aided by ChatGPT<br>
+      Typeface is Rubik<br>
+      Powered by MediaPipe FaceMesh, Tone.js,<br>
+      For 'Intro to CTC' Final Project<br>
+      © 2025
+    </p>
+  </div>
+
+</div>
+
+</div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
